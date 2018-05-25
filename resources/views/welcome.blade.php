@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    My whims
+                    MY WHIMS
                 </div>
 
                 <div class="links">
