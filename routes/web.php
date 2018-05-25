@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/welcome', 'HomeController@index')->name('welcome');
+
+route::get('/deseos','DeseoController@index')->middleware('auth');
+route::get('/deseos/create','DeseoController@create')->middleware('auth');
+route::post('/deseos','DeseoController@store')->middleware('auth');
+
