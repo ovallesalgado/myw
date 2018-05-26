@@ -22,8 +22,15 @@ Route::get('/welcome', 'HomeController@index')->name('welcome');
 route::get('/deseos','DeseoController@index')->middleware('auth');
 route::get('/deseos/create','DeseoController@create')->middleware('auth');
 route::post('/deseos','DeseoController@store')->middleware('auth');
+route::get('/deseos/{id}/edit','DeseoController@edit')->middleware('auth');
+route::post('/deseos/{id}/edit','DeseoController@update')->middleware('auth');
+route::get('/deseos/{id}/delete','DeseoController@destroy')->middleware('auth');
 
-route::name('ahorrar')->get('/ahorrar/{id}','DeseoController@ahorro');
+
+
+
+
+route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
 
 
 

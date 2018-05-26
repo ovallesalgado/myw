@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Deseo;
 use DB;
+
 class DeseoController extends Controller
 {
     /**
@@ -38,8 +39,9 @@ class DeseoController extends Controller
     }
 
 
-    public function ahorro($id){
-     dd($id);
+    public function ahorro(Request $request){
+        dd( $request->all());
+     
     }
 
     /**
@@ -60,7 +62,18 @@ class DeseoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        // dd( $request->all());
+        $deseo = new Deseo();
+        $deseo->nombre=$request->input('nombre');
+        $deseo->precio=$request->input('precio');
+        $deseo->descripcion=$request->input('descripcion');
+        $deseo->cuota=$request->input('cuota');
+        $deseo->ahorro=$request->input('ahorro');
+        $deseo->user_id=auth()->User()->id;
+        $deseo->save();
+
+        return redirect('/deseos');
     }
 
     /**
@@ -82,7 +95,9 @@ class DeseoController extends Controller
      */
     public function edit($id)
     {
-        //
+      
+        $deseo = Deseo::find($id);
+        return view('deseos.edit')->with(compact('deseo'));
     }
 
     /**
@@ -94,17 +109,22 @@ class DeseoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $deseo = Deseo::find($id);
+        $deseo->nombre=$request->input('nombre');
+        $deseo->precio=$request->input('precio');
+        $deseo->descripcion=$request->input('descripcion');
+        $deseo->cuota=$request->input('cuota');
+        $deseo->ahorro=$request->input('ahorro');
+        $deseo->user_id=auth()->User()->id;
+        $deseo->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+        return redirect('/deseos');
+    }
+    public function destroy (Request $request, $id)
     {
-        //
+        $deseo = Deseo::find($id);
+        $deseo->delete();
+        
+        return back();
     }
 }
