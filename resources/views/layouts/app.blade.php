@@ -13,6 +13,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/fontawesome-all.js') }}" defer></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -27,7 +29,7 @@
 
  
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+       
            
            
                 <a class="navbar-brand float-left" href="{{ url('/') }}">
@@ -72,7 +74,7 @@
                     </ul>
                  
                 </div>
-            </div>
+            
             
         </nav>
     
@@ -80,5 +82,6 @@
             @yield('content')
         </main>
     </div>
+ 
 </body>
 </html>

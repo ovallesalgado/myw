@@ -18,8 +18,8 @@ class CreateDeseosTable extends Migration
             $table->string('nombre');
             $table->double('precio', 8, 2);
             $table->text('descripcion')->nullable();
-            $table->double('costo', 8, 2);
-            $table->double('ahorro', 8, 2);
+            $table->double('cuota', 8, 2);
+            $table->double('ahorro', 8, 2)->nullable();
 
             // FK
          $table->integer('user_id')->unsigned();

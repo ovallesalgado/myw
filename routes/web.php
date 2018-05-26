@@ -23,3 +23,7 @@ route::get('/deseos','DeseoController@index')->middleware('auth');
 route::get('/deseos/create','DeseoController@create')->middleware('auth');
 route::post('/deseos','DeseoController@store')->middleware('auth');
 
+route::name('ahorrar')->get('/ahorrar/{id}','DeseoController@ahorro');
+
+
+
