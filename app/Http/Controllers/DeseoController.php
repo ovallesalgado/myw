@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Deseo;
+use DB;
 class DeseoController extends Controller
 {
     /**
@@ -13,7 +14,32 @@ class DeseoController extends Controller
      */
     public function index()
     {
-     return view('deseos.index');
+
+        $contador=1;
+       
+         $idUsuario =auth()->User()->id; //usuario logueado
+
+        $deseos= DB::table('deseos as deseo')     
+        ->join('users as usuario','usuario.id','=','deseo.user_id')     
+        ->select('usuario.*','deseo.*')     
+        ->where('usuario.id','=', $idUsuario)     
+        ->get();
+
+        // dd($deseos);
+     return view('deseos.index')->with(compact('deseos','contador'));
+
+
+
+
+
+
+
+    
+    }
+
+
+    public function ahorro($id){
+     dd($id);
     }
 
     /**
