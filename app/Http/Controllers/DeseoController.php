@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Deseo;
 use DB;
+Use Session;
+Use Redirect;
 
 class DeseoController extends Controller
 {
@@ -41,21 +43,46 @@ class DeseoController extends Controller
     }
 
 
-    public function ahorro(Request $request,$id)
+    public function ahorro(Request $request,$idDeseo)
     {
+        $deseos= DB::table('deseos as deseo')     
+        ->join('users as usuario','usuario.id','=','deseo.user_id')     
+        ->select('usuario.*','deseo.*')     
+        ->where('deseo.id','=', $idDeseo)     
+        ->get();
 
-        $deseo = new Deseo();
-        $deseo->cuota=$request->input('cuota');
-       dd($deseo);
+      $cuota=$request->input('cuota');
 
+      $intCuota=(int)$cuota;//dinero que va ahorrar
+
+       foreach($deseos as $de){// Consulta para traer el precio total del producto 
+        $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
+        $ahorroBd=$de->ahorro;
+               }
+    $sumaAhorro = $ahorroBd + $intCuota;//suma el ahorro de la bd y la cuota que voy ahorrar
+if($sumaAhorro  <= $precioTotal){
+    
+    $deseo = Deseo::find($idDeseo);
+    $deseo->ahorro=$sumaAhorro;
+    $deseo->update();
+    if($sumaAhorro===$precioTotal){
+        Session::flash('message','Ya  completo para comprar su deseo¡¡¡');
+        return redirect('/deseos');
+    }
+    return redirect('/deseos');
+}elseif($sumaAhorro  > $precioTotal){
+    /*$deseo = Deseo::find($idDeseo);
+    $deseo->ahorro=$sumaAhorro;
+    $deseo->update();*/
+    $superoPrecio=$sumaAhorro- $precioTotal;
+    Session::flash('message','Supero el precio del producto por el valor de: '.$superoPrecio);
+ 
+ return redirect()->back();
+}
         // $deseos=DB::table('deseos')
         // ->where('id', $id)
         // ->update(['ahorro' => ]);
-
-      
-        
- 
-         return redirect('/deseos');
+       
     }
 
 
