@@ -26,6 +26,8 @@ route::get('/deseos/{id}/edit','DeseoController@edit')->middleware('auth');
 route::post('/deseos/{id}/edit','DeseoController@update')->middleware('auth');
 route::get('/deseos/{id}/delete','DeseoController@destroy')->middleware('auth');
 
+route::get('/deseos/{id}/cuota','DeseoController@cuota')->middleware('auth');
+route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 
 
