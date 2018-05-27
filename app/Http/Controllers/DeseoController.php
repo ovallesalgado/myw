@@ -29,20 +29,40 @@ class DeseoController extends Controller
         // dd($deseos);
      return view('deseos.index')->with(compact('deseos','contador'));
 
-
-
-
-
-
-
-    
     }
 
 
-    public function ahorro(Request $request){
-        dd( $request->all());
-     
+    public function cuota($id)
+    {
+      
+        $deseo = Deseo::find($id);
+        
+        return view('deseos.cuota')->with(compact('deseo'));
     }
+
+
+    public function ahorro(Request $request,$id)
+    {
+
+        $deseo = new Deseo();
+        $deseo->cuota=$request->input('cuota');
+       dd($deseo);
+
+        // $deseos=DB::table('deseos')
+        // ->where('id', $id)
+        // ->update(['ahorro' => ]);
+
+      
+        
+ 
+         return redirect('/deseos');
+    }
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

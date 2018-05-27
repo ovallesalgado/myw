@@ -7,7 +7,7 @@
 
 <div class="container">
 <div class="row">
-<a href="/deseos/create">Crear</a>
+<a href="/deseos/create" class="btn btn-dark">Crear Deseo&nbsp<i class="fas fa-heart" style="color:red;"></i></a>
 <table class="table table-striped table-darks table table-bordered">
   <thead>
     <tr>
@@ -32,7 +32,7 @@
       @include('deseos.modals.ahorrarModal')
       <td class="text-center">
       
-      <a href="" data-toggle="modal" data-target="#ahorro-{{$deseo->id}}">
+      <a href="{{url('/deseos/'.$deseo->id.'/cuota')}}">
         <button type="button" class="btn bg-transparent">
           <i class="fas fa-piggy-bank text-warning" ></i>
         </button>

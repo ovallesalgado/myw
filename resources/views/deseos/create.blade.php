@@ -35,7 +35,8 @@
   </div>
   
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Crear</button>
+  <a href="{{url('/deseos')}}" class="btn btn-primary">Volver</a>
 </form>
 </div>
 </div>
