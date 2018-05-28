@@ -6,6 +6,12 @@
 
 
 <div class="container">
+    @if(Session::has('message'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{Session::get('message')}}
+    </div>
+    @endif
 <div class="row">
 <a href="/deseos/create" class="btn btn-dark">Crear Deseo&nbsp<i class="fas fa-heart" style="color:red;"></i></a>
 <table class="table table-striped table-darks table table-bordered">
