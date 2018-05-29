@@ -31,7 +31,7 @@ class DeseoController extends Controller
             $intPrecioT=(int)$precioTotal;
             $intAhorro=(int)$ahorroBd;
             $porcentajeAhorrado=($intAhorro/$intPrecioT)*100;
-           dump($porcentajeAhorrado);
+         //  dump($porcentajeAhorrado);
           }
      return view('deseos.index')->with(compact('deseos','contador'));
 

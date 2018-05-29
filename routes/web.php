@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*
 Route::get('/welcome', 'HomeController@index')->name('welcome');
-
-route::get('/deseos','DeseoController@index')->middleware('auth');
+*/
+route::get('/deseos','DeseoController@index')->middleware('auth')->name('deseos');
 route::get('/deseos/create','DeseoController@create')->middleware('auth');
 route::post('/deseos','DeseoController@store')->middleware('auth');
 route::get('/deseos/{id}/edit','DeseoController@edit')->middleware('auth');
@@ -35,5 +35,5 @@ route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
 
-
+Route::get('logout','Auth\LoginController@logout')->name('logout'); //ruta del logout
 
