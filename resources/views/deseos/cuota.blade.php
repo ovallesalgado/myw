@@ -8,7 +8,7 @@
   {{Session::get('message')}}
 </div>
 @endif
-<h1>cuota</h1>
+
 
 
 

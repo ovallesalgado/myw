@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>EDITAR</h1>
+
 
 
 
