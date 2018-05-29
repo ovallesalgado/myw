@@ -22,6 +22,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!--JQUERY-UI -->
+   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+   <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    <script src="{{ asset('js/jquery-2.1.4.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
+    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/progressBar.js') }}" defer></script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <!-- FIN JQUERY-UI-->
 </head>
 <body>
 
@@ -82,6 +96,8 @@
             @yield('content')
         </main>
     </div>
- 
+    @section('scripts')
+
+    @show
 </body>
 </html>
