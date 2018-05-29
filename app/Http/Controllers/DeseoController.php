@@ -141,7 +141,7 @@ if($sumaAhorro  <= $precioTotal){
         $deseo->user_id=auth()->User()->id;
         $deseo->save();
 
-        return redirect('/deseos');
+        return redirect('deseos');
     }
 
     /**

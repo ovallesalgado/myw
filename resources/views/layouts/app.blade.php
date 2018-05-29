@@ -1,109 +1,116 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
+<html lang="en">
+
+  <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Whims</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat:400,700') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic') }}" rel="stylesheet" type="text/css">
     
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/fontawesome-all.js') }}" defer></script>
+    <!-- Plugin CSS -->
+    <link href="{{ asset('vendor/magnific-popup/magnific-popup.css') }}" rel="stylesheet" type="text/css">
     
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!--JQUERY-UI -->
-   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-   <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-    <script src="{{ asset('js/jquery-2.1.4.min.js') }}" defer></script>
-    <script src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
-    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/progressBar.js') }}" defer></script>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/freelancer.min.css') }}" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">My Whims</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{url('/')}}">Inicio</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('login')}}">Login</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{route('register')}}">Registro</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+   @yield('content')
+   
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+  
+     
     
-    <!-- FIN JQUERY-UI-->
-</head>
-<body>
+          <div class="center">
+            <h4 class="text-uppercase mb-4" align="center">Ingenieria de Software III</h4>
+            <p class="lead mb-0">Manuela Cardona Arias
+             <br> Jhon Jairo Ovalles Salgado <br>
+             Merly Viafara Mancilla <br>
+             Rubens Dias Pulli <br>
+             Karen Marley Ramos Angulo</p>
+          </div>
+        
+      </div>
+    </footer>
 
-    <div id="app">
-
- 
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-       
-           
-           
-                <a class="navbar-brand float-left" href="{{ url('/') }}">
-                MY WHYMS
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-                    
-                    
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto float-right">
-                    
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} 
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{url('/deseos/ayuda')}}">
-                                    <i class="fas fa-question-circle"></i>
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                               
-                            </li>
-                        @endguest
-                        
-                    </ul>
-                        
-                </div>
-            
-            
-        </nav>
-    
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Uniajc 2018</small>
+      </div>
     </div>
-    @section('scripts')
 
-    @show
-</body>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+  
+ <!-- Bootstrap core JavaScript -->
+ <script src="{{ asset('vendor/jquery/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}" defer></script>
+    
+    
+    <!-- Plugin JavaScript -->
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}" defer></script>
+    <script src="{{ asset('vendor/magnific-popup/jquery.magnific-popup.min.js') }}" defer></script>
+    
+
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('js/jqBootstrapValidation.js') }}" defer></script>
+    <script src="{{ asset('js/contact_me.js') }}" defer></script>
+ 
+
+    <!-- Custom scripts for this template -->
+    <script src="{{ asset('js/freelancer.min.js') }}" defer></script>
+    
+
+
+   
+   
+
+  </body>
+
 </html>

@@ -1,18 +1,22 @@
-
-@extends('layouts.app')
-
+@extends('layouts.admin')
 @section('content')
-
-
-
-
-
 <div class="container ">
 <div class="row">
 <div class="col-md-6">
 <form method="post" action="{{url('/deseos')}}">
+
 {{csrf_field()}}
- 
+<div class="container " >
+<h3>Crear Deseo</h3>
+<br>
+</div>
+
+<div class="container" >
+<div class="row">
+   <div class="col-md-8">
+
+   
+
   <div class="form-group ">
     <label for="nombre">Nombre</label>
     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -36,10 +40,16 @@
   
   
   <button type="submit" class="btn btn-primary">Crear</button>
-  <a href="{{url('/deseos')}}" class="btn btn-primary">Volver</a>
+  <a href="{{url('deseos')}}" class="btn btn-primary">Volver</a>
 </form>
 </div>
 </div>
 </div>
+
+</div>
+</div>
+</div>
+
+
 
 @endsection

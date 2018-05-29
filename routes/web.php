@@ -14,13 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('acercade', function () {
+    return view('deseos.acercade');
+});
 Auth::routes();
-
+/*
 Route::get('/welcome', 'HomeController@index')->name('welcome');
-
-route::get('/deseos','DeseoController@index')->middleware('auth');
-route::get('/deseos/create','DeseoController@create')->middleware('auth');
+*/
+route::get('/deseos','DeseoController@index')->middleware('auth')->name('deseos');
+route::get('/deseos/create','DeseoController@create')->middleware('auth')->name('crear');
 route::post('/deseos','DeseoController@store')->middleware('auth');
 route::get('/deseos/{id}/edit','DeseoController@edit')->middleware('auth');
 route::post('/deseos/{id}/edit','DeseoController@update')->middleware('auth');
@@ -30,11 +32,11 @@ route::get('/deseos/{id}/cuota','DeseoController@cuota')->middleware('auth');
 route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 
-route::post('/deseos','DeseoController@ayuda')->middleware('auth');
-route::get('/deseos/ayuda','DeseoController@ayuda')->middleware('auth');
+
+route::get('/deseos/ayuda','DeseoController@ayuda')->middleware('auth')->name('ayuda');
 
 
 route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
 
-
+Route::get('logout','Auth\LoginController@logout')->name('logout'); //ruta del logout
 
