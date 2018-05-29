@@ -17,6 +17,7 @@ class deseo extends Model
         'descripcion',
         'cuota',
         'ahorro',
-        'user_id'
+        'user_id',
+        'ahorroPorcentaje'
     ];
 }

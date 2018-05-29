@@ -23,6 +23,7 @@ class CreateDeseosTable extends Migration
 
             // FK
          $table->integer('user_id')->unsigned();
+         $table->double('ahorroPorcentaje',8,2)->default(0);
          $table->foreign('user_id')->references('id')->on('users'); 
     
     

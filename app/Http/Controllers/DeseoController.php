@@ -17,9 +17,7 @@ class DeseoController extends Controller
      */
     public function index()
     {
-
         $contador=1;
-       
          $idUsuario =auth()->User()->id; //usuario logueado
 
         $deseos= DB::table('deseos as deseo')     
@@ -27,8 +25,14 @@ class DeseoController extends Controller
         ->select('usuario.*','deseo.*')     
         ->where('usuario.id','=', $idUsuario)     
         ->get();
-
-        // dd($deseos);
+       foreach($deseos as $de){// Consulta para traer el precio total del producto 
+            $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
+            $ahorroBd=$de->ahorro;
+            $intPrecioT=(int)$precioTotal;
+            $intAhorro=(int)$ahorroBd;
+            $porcentajeAhorrado=($intAhorro/$intPrecioT)*100;
+           dump($porcentajeAhorrado);
+          }
      return view('deseos.index')->with(compact('deseos','contador'));
 
     }
@@ -55,9 +59,18 @@ class DeseoController extends Controller
 
       $intCuota=(int)$cuota;//dinero que va ahorrar
 
+      /*foreach($deseos as $de){// Consulta para traer el precio total del producto 
+        $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
+        $ahorroBd=$de->ahorro;
+        $intPrecioT=(int)$precioTotal;
+        $intAhorro=(int)$ahorroBd;
+        $porcentajeAhorrado=($intAhorro/$intPrecioT)*100;
+       dump($porcentajeAhorrado);
+      }*/
        foreach($deseos as $de){// Consulta para traer el precio total del producto 
         $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
         $ahorroBd=$de->ahorro;
+       // $porcentajeAhorrado=($ahorroBd/$precioTotal)*100;
                }
     $sumaAhorro = $ahorroBd + $intCuota;//suma el ahorro de la bd y la cuota que voy ahorrar
 if($sumaAhorro  <= $precioTotal){
@@ -65,6 +78,8 @@ if($sumaAhorro  <= $precioTotal){
     $deseo = Deseo::find($idDeseo);
     $deseo->ahorro=$sumaAhorro;
     $deseo->cuota=$intCuota;
+    $deseo->ahorroPorcentaje=($sumaAhorro/$precioTotal)*100;
+   // dd($b);
     $deseo->update();
     if($sumaAhorro===$precioTotal){
         Session::flash('message','¡¡¡Deseo alcanzado!!!');
@@ -77,7 +92,6 @@ if($sumaAhorro  <= $precioTotal){
     $deseo->update();*/
     $superoPrecio=$sumaAhorro- $precioTotal;
     Session::flash('message','Supero el precio del producto por el valor de: '.$superoPrecio);
- 
  return redirect()->back();
 }
         // $deseos=DB::table('deseos')
