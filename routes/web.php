@@ -32,6 +32,7 @@ route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 
 
+
 route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
 
 

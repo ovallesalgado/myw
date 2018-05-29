@@ -13,6 +13,7 @@
     </div>
     @endif
 <div class="row">
+    
 <a href="/deseos/create" class="btn btn-dark">Crear Deseo&nbsp<i class="fas fa-heart" style="color:red;"></i></a>
 <table class="table table-striped table-darks table table-bordered">
   <thead>
@@ -28,51 +29,51 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($deseos as $deseo)
-    <tr>
-      <th scope="row">{{$contador++}}</th>
-      <td>{{$deseo->nombre}}</td>
-      <td>{{$deseo->precio}}</td>
-      <td>{{$deseo->descripcion}}</td>
-      <td>{{$deseo->cuota}}</td>
-      <td>{{$deseo->ahorro}}</td>
-      <td>
-      
-      
-      </td>
-      @include('deseos.modals.ahorrarModal')
-      <td class="text-center">
-      
-      <a href="{{url('/deseos/'.$deseo->id.'/cuota')}}">
-        <button type="button" class="btn bg-transparent">
-          <i class="fas fa-piggy-bank text-warning" ></i>
-        </button>
-      </a>
-      </td>
-
-      <td class="text-center">
-        <a href="{{url('/deseos/'.$deseo->id.'/edit')}}">
-          <button type="button" class="btn bg-transparent">
-           <i class="fas fa-edit text-info"></i>  
-          </button>
-        </a>
-       </td>
-
-      <td class="text-center">
- 
-      <a type="button" class="btn bg-transparent" href="{{url('/deseos/'.$deseo->id.'/delete')}}"onclick="return confirm('Quieres borrar tu deseo?');">
-      <i class="fas fa-trash-alt text-danger"></i>
-  
-      </a>
-      </td>
-      
+      @foreach($deseos as $deseo)
+        <tr>
+          <th scope="row">{{$contador++}}</th>
+          <td>{{$deseo->nombre}}</td>
+          <td>{{$deseo->precio}}</td>
+          <td>{{$deseo->descripcion}}</td>
+          <td>{{$deseo->cuota}}</td>
+          <td>{{$deseo->ahorro}}</td>
      
-    </tr>
-    @endforeach
-  </tbody>
+        <td> <div class="w3-light-grey"><div class="w3-blue" style="height:20px;width:{{$deseo->ahorroPorcentaje}}.%"></div></div></td>
+  
+          @include('deseos.modals.ahorrarModal')
+          <td class="text-center">
+          
+          <a href="{{url('/deseos/'.$deseo->id.'/cuota')}}">
+            <button type="button" class="btn bg-transparent">
+              <i class="fas fa-piggy-bank text-warning" ></i>
+            </button>
+          </a>
+          </td>
+    
+          <td class="text-center">
+            <a href="{{url('/deseos/'.$deseo->id.'/edit')}}">
+              <button type="button" class="btn bg-transparent">
+               <i class="fas fa-edit text-info"></i>  
+              </button>
+            </a>
+           </td>
+    
+          <td class="text-center">
+     
+          <a type="button" class="btn bg-transparent" href="{{url('/deseos/'.$deseo->id.'/delete')}}"onclick="return confirm('Quieres borrar tu deseo?');">
+          <i class="fas fa-trash-alt text-danger"></i>
+      
+          </a>
+          </td>
+          
+         
+        </tr>
+        @endforeach
+      </tbody> 
+
 </table>
 </div>
 </div>
-
+<!--<div id='progressbar'></div>-->
 
 @endsection
