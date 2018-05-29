@@ -64,9 +64,10 @@ if($sumaAhorro  <= $precioTotal){
     
     $deseo = Deseo::find($idDeseo);
     $deseo->ahorro=$sumaAhorro;
+    $deseo->cuota=$intCuota;
     $deseo->update();
     if($sumaAhorro===$precioTotal){
-        Session::flash('message','Ya  completo para comprar su deseo¡¡¡');
+        Session::flash('message','¡¡¡Deseo alcanzado!!!');
         return redirect('/deseos');
     }
     return redirect('/deseos');

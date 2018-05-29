@@ -25,14 +25,14 @@
     <label for="descripcion">Descripción</label>
     <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción">
   </div>
-  <div class="form-group ">
+  <!-- <div class="form-group ">
     <label for="cuota">Cuota</label>
     <input type="number" class="form-control" id="cuota" name="cuota"  placeholder="Cuota">
   </div>
   <div class="form-group ">
     <label for="exampleInputEmail1">Ahorro</label>
     <input type="number" class="form-control" id="ahorro" name="ahorro"  placeholder="Ahorro">
-  </div>
+  </div> -->
   
   
   <button type="submit" class="btn btn-primary">Crear</button>
