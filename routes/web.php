@@ -30,7 +30,8 @@ route::get('/deseos/{id}/cuota','DeseoController@cuota')->middleware('auth');
 route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 
-
+route::post('/deseos','DeseoController@ayuda')->middleware('auth');
+route::get('/deseos/ayuda','DeseoController@ayuda')->middleware('auth');
 
 
 route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
