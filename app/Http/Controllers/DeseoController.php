@@ -76,7 +76,6 @@ if($sumaAhorro  <= $precioTotal){
     $deseo->update();*/
     $superoPrecio=$sumaAhorro- $precioTotal;
     Session::flash('message','Supero el precio del producto por el valor de: '.$superoPrecio);
- 
  return redirect()->back();
 }
         // $deseos=DB::table('deseos')
