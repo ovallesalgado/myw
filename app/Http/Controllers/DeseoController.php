@@ -25,14 +25,14 @@ class DeseoController extends Controller
         ->select('usuario.*','deseo.*')     
         ->where('usuario.id','=', $idUsuario)     
         ->get();
-      /*  foreach($deseos as $de){// Consulta para traer el precio total del producto 
+       foreach($deseos as $de){// Consulta para traer el precio total del producto 
             $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
             $ahorroBd=$de->ahorro;
             $intPrecioT=(int)$precioTotal;
             $intAhorro=(int)$ahorroBd;
             $porcentajeAhorrado=($intAhorro/$intPrecioT)*100;
            dump($porcentajeAhorrado);
-          }*/
+          }
      return view('deseos.index')->with(compact('deseos','contador'));
 
     }

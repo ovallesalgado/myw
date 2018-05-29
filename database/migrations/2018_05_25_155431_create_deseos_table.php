@@ -16,14 +16,14 @@ class CreateDeseosTable extends Migration
         Schema::create('deseos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->double('precio', 8, 1);
+            $table->double('precio', 8, 2);
             $table->text('descripcion')->nullable();
-            $table->double('cuota', 8, 1)->nullable();
-            $table->double('ahorro', 8, 1)->nullable();
+            $table->double('cuota', 8, 2)->nullable();
+            $table->double('ahorro', 8, 2)->nullable();
 
             // FK
          $table->integer('user_id')->unsigned();
-         $table->double('ahorroPorcentaje',8,1)->default(0);
+         $table->double('ahorroPorcentaje',8,2)->default(0);
          $table->foreign('user_id')->references('id')->on('users'); 
     
     

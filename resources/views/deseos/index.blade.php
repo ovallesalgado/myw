@@ -38,7 +38,7 @@
           <td>{{$deseo->cuota}}</td>
           <td>{{$deseo->ahorro}}</td>
      
-        <td> <div class="w3-light-grey"><div class="w3-blue" style="height:20px;width:{{$deseo->ahorroPorcentaje}}.%"></div></div></td>
+        <td> <div class="w3-light-grey"><div class="w3-blue" style="height:20px;width:{{$deseo->ahorroPorcentaje}}%"></div></div></td>
   
           @include('deseos.modals.ahorrarModal')
           <td class="text-center">
