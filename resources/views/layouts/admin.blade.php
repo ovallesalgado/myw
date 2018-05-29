@@ -7,17 +7,19 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+   
     <!-- Theme style -->
-    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link href="{{ asset('css/AdminLTE.min.css') }}" rel="stylesheet">
+    
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/_all-skins.min.css">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    <link rel="shortcut icon" href="img/favicon.ico">
-
+         <link href="{{ asset('css/_all-skins.min.css') }}" rel="stylesheet">
+         <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+         <link href="{{ asset('img/favicon.icocss/bootstrap.min.css') }}" rel="shortcut icon">
+   
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -52,7 +54,7 @@
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                  <img class="img-fluid mb-5 d-block mx-auto" src="img/descarga.png" alt="" width="100" height="100">
+                  <img class="img-fluid mb-5 d-block mx-auto" src="{{ asset('img/descarga.png') }}" alt="" width="100" height="100">
        
                     <p>
                  
@@ -98,19 +100,19 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('deseos') }}"><i class="fa fa-circle-o"></i> Inicio</a></li>
-                <li><a href="deseos/create"><i class="fa fa-circle-o"></i> Crear</a></li>
+                <li><a href="{{ route('crear') }}"><i class="fa fa-circle-o"></i> Crear</a></li>
               </ul>
             </li>
             
 
              <li>
-              <a href="#">
+              <a href="{{ route('ayuda') }}">
                 <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                <small class="label pull-right bg-red">PDF</small>
+                <small class="label pull-right bg-blue">JPG</small>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="{{ url('acercade') }}">
                 <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
                 <small class="label pull-right bg-yellow">IT</small>
               </a>
@@ -146,11 +148,14 @@
 
       
     <!-- jQuery 2.1.4 -->
-    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="{{ asset('js/jQuery-2.1.4.min.js') }}" defer></script>
+   
     <!-- Bootstrap 3.3.5 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+  
     <!-- AdminLTE App -->
-    <script src="js/app.min.js"></script>
+    <script src="{{ asset('js/app.min.js') }}" defer></script>
+ 
     
   </body>
 </html>

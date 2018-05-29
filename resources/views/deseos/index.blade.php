@@ -6,17 +6,28 @@
 
 
 <div class="container">
+
+
+
+<div class="row">
+<div class="col-md-11">
     @if(Session::has('message'))
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       {{Session::get('message')}}
     </div>
     @endif
+    </div>
+    </div>  
 <div class="row">
 <div class="container">
+
+
+
 <a href="/deseos/create" class="btn btn-success">Crear Deseos <i class="fa fa-plus" style="color:black;"></i></a>
 </div>
 <br>
+<div class="col-md-11">
 <div class="table-responsive">  
 <table class="table" style="border:2px solid black;" align="center" >
   <thead>
@@ -41,7 +52,12 @@
           <td style="border: thin solid black;">{{$deseo->cuota}}</td>
           <td style="border: thin solid black;">{{$deseo->ahorro}}</td>
      
-        <td style="border: thin solid black;"> <div class="w3-light-grey"><div class="w3-blue" style="height:20px;width:{{$deseo->ahorroPorcentaje}}%"></div></div></td>
+        <td style="border: thin solid black;"> 
+        
+        <div class="progress">
+  <div class="progress-bar" role="progressbar" style="height:20px;width:{{$deseo->ahorroPorcentaje}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{$deseo->ahorroPorcentaje}}%</div>
+</div>
+        </td>
   
           @include('deseos.modals.ahorrarModal')
           <td class="text-center" style="border: thin solid black;">
@@ -75,6 +91,7 @@
       </tbody> 
 
 </table>
+</div>
 </div>
 </div>
 </div>
