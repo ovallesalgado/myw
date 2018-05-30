@@ -10,8 +10,7 @@
 </head>
 <body>
   
-  <h1>{!! $observacion !!} </h1>  <strong>{!! $deseoNombre !!}</strong>,<br>
-   Llevas  el {!! $porcentaje!!} % ahorrado¡¡ <strong>Felicitaciones¡¡</strong>  <br>
+ <h2> {!! $observacion !!}</h2> <h1> <strong>{!! $deseoNombre !!}</strong></h1>, Llevas  el {!! $porcentaje!!}% ahorrado¡¡ <strong>Felicitaciones¡¡</strong>  <br>
 
 </body>
 </html>
