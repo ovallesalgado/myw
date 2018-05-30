@@ -7,7 +7,7 @@ use App\Deseo;
 use DB;
 Use Session;
 Use Redirect;
-
+use Mail;
 class DeseoController extends Controller
 {
     /**
@@ -70,6 +70,7 @@ class DeseoController extends Controller
        foreach($deseos as $de){// Consulta para traer el precio total del producto 
         $precioTotal=$de->precio;//y traer cuanto llevo ahorrado hasta el momento
         $ahorroBd=$de->ahorro;
+        $nombreDeseo=$de->nombre;
        // $porcentajeAhorrado=($ahorroBd/$precioTotal)*100;
                }
     $sumaAhorro = $ahorroBd + $intCuota;//suma el ahorro de la bd y la cuota que voy ahorrar
@@ -81,6 +82,15 @@ if($sumaAhorro  <= $precioTotal){
     $deseo->ahorroPorcentaje=($sumaAhorro/$precioTotal)*100;
    // dd($b);
     $deseo->update();
+    $sumaAhorro1=($sumaAhorro/$precioTotal)*100;
+if($sumaAhorro1>=90.0){
+    Mail::send('email.emailDeseoAlcanzado',  ['deseoNombre'=>  $nombreDeseo, 'observacion'=>'Ya casi alcanzas tu deseo', 'porcentaje'=> $sumaAhorro1], function($message){
+        $message->from('appgestionhumana.uniajc@gmail.com');
+       $message->to(auth()->User()->email)->subject('My Whims');
+     //  $message->$request->get('email')->subject('Respuesta de solicitud');  ****PARA EL EMAIL DEL SOLICITANTE ***
+    });
+}
+
     if($sumaAhorro===$precioTotal){
         Session::flash('message','¡¡¡Deseo alcanzado!!!');
         return redirect('/deseos');
@@ -140,7 +150,7 @@ if($sumaAhorro  <= $precioTotal){
         $deseo->ahorro=$request->input('ahorro');
         $deseo->user_id=auth()->User()->id;
         $deseo->save();
-
+        Session::flash('message','Deseo Creado Correctamente!!!');
         return redirect('deseos');
     }
 
@@ -190,6 +200,7 @@ if($sumaAhorro  <= $precioTotal){
     }
     public function destroy (Request $request, $id)
     {
+        Session::flash('message-danger','Deseo Eliminado Correctamente¡¡');
         $deseo = Deseo::find($id);
         $deseo->delete();
         

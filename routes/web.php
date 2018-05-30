@@ -32,9 +32,15 @@ route::get('/deseos/{id}/cuota','DeseoController@cuota')->middleware('auth');
 route::post('/deseos/{id}/cuota','DeseoController@ahorro')->middleware('auth');
 
 
+<<<<<<< HEAD
 
 route::get('/deseos/ayuda','DeseoController@ayuda')->middleware('auth')->name('ayuda');
 
+=======
+
+route::get('/deseos/ayuda','DeseoController@ayuda')->middleware('auth');
+route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
+>>>>>>> 13f4d5cc5f85d6e48607bae2c84c1e61b37510ed
 
 route::post('/deseos/ahorro','DeseoController@ahorro')->middleware('auth');
 
