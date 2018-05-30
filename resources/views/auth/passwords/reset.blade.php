@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="portfolio" id="portfolio">
 <div class="container">
+<br>
+<br>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Restablecer COntraseña</h2>
+        <hr class="star-dark mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Restablecer Contraseña') }}</div>
+                <div class="card-header"></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.request') }}">
@@ -62,4 +67,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection
